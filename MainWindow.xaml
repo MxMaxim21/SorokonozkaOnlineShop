@@ -5,8 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SorokonozkaApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="SorokonozkaApp" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="{Binding Content.Title, ElementName=FrameMain}" VerticalAlignment="Center"
+                   HorizontalAlignment="Center" FontSize="26" Margin="5"/>
+        <Frame x:Name="FrameMain" Grid.Row="1" NavigationUIVisibility="Hidden" Margin="5"
+               Navigated="FrameMain_Navigated"/>
+        <TextBlock Grid.Row="2" Text="Нечаев Максим ИСП-43" VerticalAlignment="Center"
+                   HorizontalAlignment="Right" FontSize="10" Margin="5"/>
     </Grid>
 </Window>
