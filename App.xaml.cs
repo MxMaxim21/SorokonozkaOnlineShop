@@ -13,5 +13,9 @@ namespace SorokonozkaApp
     /// </summary>
     public partial class App : Application
     {
+        public static Entities.ShoesDBEntities Context
+        {  get; set; } = new Entities.ShoesDBEntities();
+
+        public static Entities.Users CurrentUser = null;
     }
 }
