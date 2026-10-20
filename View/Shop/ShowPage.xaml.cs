@@ -21,15 +21,18 @@ namespace SorokonozkaApp.View.Shop
     /// </summary>
     public partial class ShowPage : Page
     {
+        public Visibility AdminVisibility { get; set; } = Visibility.Collapsed;
+
         public ShowPage()
         {
-            InitializeComponent();
-        }
+            if (App.CurrentUser != null && App.CurrentUser.RoleID == 1)
+            {
+                AdminVisibility = Visibility.Visible;
+            }
 
-        private void BtnClose_Click(object sender, RoutedEventArgs e)
-        {
-            if (NavigationService != null && NavigationService.CanGoBack)
-                NavigationService.GoBack();
+            this.DataContext = this;
+
+            InitializeComponent();
         }
 
         private void BtnCart_Click(object sender, RoutedEventArgs e)
@@ -55,7 +58,7 @@ namespace SorokonozkaApp.View.Shop
 
                 LViewShoes.ItemsSource = shoes;
 
-                
+
             }
             catch (Exception ex)
             {
@@ -99,6 +102,40 @@ namespace SorokonozkaApp.View.Shop
             else
             {
                 MessageBox.Show("Этот товар уже находится в корзине.", "Корзина", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            var product = (sender as Button)?.Tag as Entities.Products;
+            if (product != null)
+            {
+                AddEditProductWindows win = new AddEditProductWindows(product);
+                if (win.ShowDialog() == true)
+                {
+                    UpdateData();
+                }
+            }
+        }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var product = (sender as Button)?.Tag as Entities.Products;
+            if (product == null) return;
+
+            if (MessageBox.Show($"Вы действительно хотите удалить товар {product.Title}?", "Удаление",
+                MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    App.Context.Products.Remove(product);
+                    App.Context.SaveChanges();
+                    UpdateData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Нельзя удалить товар пока он лежит в корзине!\n{ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
     }

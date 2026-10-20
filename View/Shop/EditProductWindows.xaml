@@ -1,0 +1,27 @@
+﻿<Window x:Class="SorokonozkaApp.View.Shop.AddEditProductWindows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SorokonozkaApp.View.Shop"
+        mc:Ignorable="d"
+        Title="AddEditProductWindows" Height="450" Width="800">
+    <Grid Margin="15">
+        <StackPanel VerticalAlignment="Center">
+            
+            <TextBlock Text="Наименование товара:" Margin="0,3"/>
+            <TextBox Name="TBoxTitle" Margin="0,0,0,8"/>
+
+            <TextBlock Text="Описание товара:" Margin="0,3"/>
+            <TextBox Name="TBoxDescription" Margin="0,0,0,8"/>
+
+            <TextBlock Text="Цена товара:" Margin="0,3"/>
+            <TextBox Name="TBoxPrice" Margin="0,0,0,8"/>
+
+            <TextBlock Text="Остаток на складе:" Margin="0,3"/>
+            <TextBox Name="TBoxStock" Margin="0,0,0,15"/>
+
+            <Button Name="BtnSave" Content="Сохранить" Padding="10,6" Click="BtnSave_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

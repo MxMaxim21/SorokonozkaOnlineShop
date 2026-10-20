@@ -51,7 +51,7 @@ namespace SorokonozkaApp.View
                 }
                 else
                 {
-                    MessageBox.Show("Неверный логин или пароль! \nАдрес службы поддержки: admin@mail.com", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Неверный логин! \nАдрес службы поддержки: admin@mail.com", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
             }
