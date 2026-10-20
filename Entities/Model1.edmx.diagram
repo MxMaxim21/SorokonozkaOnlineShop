@@ -5,20 +5,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="263e5021f5a34e07a3bb4cc6459aa442" Name="Diagram1">
-        <EntityTypeShape EntityType="ShoesDBModel.Categories" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShoesDBModel.OrderDetails" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShoesDBModel.Orders" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShoesDBModel.Products" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShoesDBModel.Roles" Width="1.5" PointX="1.5" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShoesDBModel.Subcategories" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShoesDBModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShoesDBModel.Users" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
-        <AssociationConnector Association="ShoesDBModel.FK_Products_Categories" ManuallyRouted="false" />
-        <AssociationConnector Association="ShoesDBModel.FK_OrderDetails_Orders" ManuallyRouted="false" />
-        <AssociationConnector Association="ShoesDBModel.FK_OrderDetails_Products" ManuallyRouted="false" />
-        <AssociationConnector Association="ShoesDBModel.FK_Orders_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="ShoesDBModel.FK_Products_Subcategories" ManuallyRouted="false" />
-        <AssociationConnector Association="ShoesDBModel.FK_Users_Roles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ShoesDBModel.Categories" Width="1.5" PointX="3" PointY="5.375" />
+        <EntityTypeShape EntityType="ShoesDBModel.OrderItems" Width="1.5" PointX="7.5" PointY="1" />
+        <EntityTypeShape EntityType="ShoesDBModel.Orders" Width="1.5" PointX="5.25" PointY="1.125" />
+        <EntityTypeShape EntityType="ShoesDBModel.Products" Width="1.5" PointX="5.25" PointY="4.875" />
+        <EntityTypeShape EntityType="ShoesDBModel.Roles" Width="1.5" PointX="0.75" PointY="1.375" />
+        <EntityTypeShape EntityType="ShoesDBModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ShoesDBModel.Users" Width="1.5" PointX="3" PointY="1" />
+        <AssociationConnector Association="ShoesDBModel.FK_Products_Categories" />
+        <AssociationConnector Association="ShoesDBModel.FK_OrderItems_Orders" />
+        <AssociationConnector Association="ShoesDBModel.FK_OrderItems_Products" />
+        <AssociationConnector Association="ShoesDBModel.FK_Orders_Users" />
+        <AssociationConnector Association="ShoesDBModel.FK_Users_Roles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

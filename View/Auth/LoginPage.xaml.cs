@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SorokonozkaApp.View;
+using SorokonozkaApp.View.Showcase;
 
 namespace SorokonozkaApp.View
 {
@@ -43,7 +44,7 @@ namespace SorokonozkaApp.View
                 if (currentUser != null)
                 {
                     MessageBox.Show($"Вы вошли как: {currentUser.Login}!", "Успешный вход", MessageBoxButton.OK, MessageBoxImage.Asterisk);
-                    //NavigationService.Navigate(new Page);
+                    NavigationService.Navigate(new ShowPage());
                     return;
                 }
                 else

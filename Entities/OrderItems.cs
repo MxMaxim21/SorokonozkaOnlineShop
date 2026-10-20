@@ -12,19 +12,16 @@ namespace SorokonozkaApp.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Subcategories
+    public partial class OrderItems
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Subcategories()
-        {
-            this.Products = new HashSet<Products>();
-        }
+        public int OrderItemID { get; set; }
+        public Nullable<int> OrderID { get; set; }
+        public Nullable<int> ProductID { get; set; }
+        public Nullable<int> Quantity { get; set; }
+        public Nullable<decimal> UnitPrice { get; set; }
+        public Nullable<decimal> LineTotal { get; set; }
     
-        public int SubcategoryID { get; set; }
-        public string SubcategoryName { get; set; }
-        public Nullable<int> CategoryID { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Products> Products { get; set; }
+        public virtual Orders Orders { get; set; }
+        public virtual Products Products { get; set; }
     }
 }

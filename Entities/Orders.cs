@@ -17,7 +17,7 @@ namespace SorokonozkaApp.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Orders()
         {
-            this.OrderDetails = new HashSet<OrderDetails>();
+            this.OrderItems = new HashSet<OrderItems>();
         }
     
         public int OrderID { get; set; }
@@ -26,7 +26,7 @@ namespace SorokonozkaApp.Entities
         public Nullable<decimal> TotalAmount { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetails> OrderDetails { get; set; }
+        public virtual ICollection<OrderItems> OrderItems { get; set; }
         public virtual Users Users { get; set; }
     }
 }

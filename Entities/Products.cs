@@ -17,20 +17,19 @@ namespace SorokonozkaApp.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Products()
         {
-            this.OrderDetails = new HashSet<OrderDetails>();
+            this.OrderItems = new HashSet<OrderItems>();
         }
     
         public int ProductID { get; set; }
         public Nullable<int> CategoryID { get; set; }
-        public Nullable<int> SubcategoryID { get; set; }
         public string Title { get; set; }
         public string Structure { get; set; }
         public string Description { get; set; }
         public Nullable<decimal> Price { get; set; }
+        public Nullable<int> Stock { get; set; }
     
         public virtual Categories Categories { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetails> OrderDetails { get; set; }
-        public virtual Subcategories Subcategories { get; set; }
+        public virtual ICollection<OrderItems> OrderItems { get; set; }
     }
 }
