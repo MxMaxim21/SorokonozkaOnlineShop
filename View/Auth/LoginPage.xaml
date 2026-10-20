@@ -11,7 +11,7 @@
 
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>

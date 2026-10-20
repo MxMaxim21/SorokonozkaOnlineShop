@@ -60,5 +60,10 @@ namespace SorokonozkaApp.View.Showcase
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void BtnBuy_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -43,6 +43,7 @@
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="Price" Type="decimal" Precision="10" Scale="2" />
           <Property Name="Stock" Type="int" />
+          <Property Name="Photo" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -311,6 +312,7 @@
           <Property Name="Stock" Type="Int32" />
           <NavigationProperty Name="Categories" Relationship="ShoesDBModel.FK_Products_Categories" FromRole="Products" ToRole="Categories" />
           <NavigationProperty Name="OrderItems" Relationship="ShoesDBModel.FK_OrderItems_Products" FromRole="Products" ToRole="OrderItems" />
+          <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -466,6 +468,7 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="ShoesDBModel.Products">
               <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="Stock" ColumnName="Stock" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Description" ColumnName="Description" />

@@ -17,58 +17,53 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-            
-            <Button Grid.Column="0" Name="BtnClose" Content="Выход" HorizontalAlignment="Left"
-                    VerticalAlignment="Center" Click="BtnClose_Click" Margin="5"/>
-            <Button Grid.Column="1" Name="BtnCart" Content="Корзина" HorizontalAlignment="Right"
-                    VerticalAlignment="Center" Click="BtnCart_Click" Margin="5"/>
-            </Grid>
-        </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
 
-        <ListView Grid.Row="1" Name="LViewShoes" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+            <Button Name="BtnClose" Grid.Column="0" Content="Выход" HorizontalAlignment="Left"
+                    VerticalAlignment="Center" Click="BtnClose_Click" Margin="5"/>
+            <Button Name="BtnCart" Grid.Column="1"  Content="Корзина" HorizontalAlignment="Right"
+                    VerticalAlignment="Center" Click="BtnCart_Click" Margin="5"/>
+
+        <ListView Grid.Row="1" Grid.ColumnSpan="2" Name="LViewShoes" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Margin="5">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="#DDD" BorderThickness="1" CornerRadius="5"
                             Background="#FFF" Margin="5" Padding="10" Width="900">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/> <!--Photo-->
-                                <ColumnDefinition Width="Auto"/> <!--Title-->
-                                <ColumnDefinition Width="Auto"/> <!--Price-->
-                                <ColumnDefinition Width="Auto"/> <!--Count-->
+                                <ColumnDefinition Width="95"/> <!--Photo-->
+                                <ColumnDefinition Width="*"/> <!--Title-->
+                                <ColumnDefinition Width="160"/> <!--Price-->
                                 <ColumnDefinition Width="Auto"/> <!--Button-->
                             </Grid.ColumnDefinitions>
 
-                            <Border Grid.Column="0" Grid.Row="0" Width="50" Height="50" BorderBrush="#AAA"
-                                    BorderThickness="1" Background="#AAA"
-                                    VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <StackPanel Grid.Column="0" Orientation="Horizontal" Margin="5, 0, 15, 0">
+                            <Border Width="80" Height="80" BorderBrush="#AAA"
+                                    BorderThickness="1" Background="#AAA">
                                 <Image Name="ImgPreview" Stretch="UniformToFill"/>
                             </Border>
+                            </StackPanel>
 
-                            <TextBlock Grid.Column="1" FontSize="14"
-                                       VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold">
-                                <Run Text="{Binding Title}"/>
-                                <Run Text="|"/>
-                            </TextBlock>
+                            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                <TextBlock FontSize="14" FontWeight="Bold">
+                                    <Run Text="{Binding Title}"/>
+                                </TextBlock>
+                                <TextBlock FontSize="10">
+                                    <Run Text="{Binding Description}"/>
+                                    <Run Text=" | Остаток на складе:"/>
+                                    <Run Text="{Binding Stock}"/>
+                                </TextBlock>
+                            </StackPanel>
 
-                            <TextBlock Grid.Column="2" FontSize="14"
-                                       VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold">
-                                <Run Text="{Binding Price}"/>
-                                <Run Text="|"/>
-                            </TextBlock>
+                            <TextBlock Grid.Column="2" Text="{Binding Price, StringFormat={}{0:N0} ₽}"
+                                       FontSize="18" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Right"/>
 
-                            <TextBlock Grid.Column="3" FontSize="14"
-                                       VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold">
-                                <Run Text="{Binding Count}"/>
-                                <Run Text="|"/>
-                            </TextBlock>
-
+                            <StackPanel Grid.Column="3" Orientation="Horizontal" VerticalAlignment="Center" Margin="15, 0">
+                                <Button Name="BtnBuy" Content="Добавить в корзину" Padding="12, 6" Click="BtnBuy_Click"/>
+                            </StackPanel>
                         </Grid>
                     </Border>
                 </DataTemplate>
