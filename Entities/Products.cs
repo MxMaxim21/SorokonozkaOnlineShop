@@ -11,10 +11,7 @@ namespace SorokonozkaApp.Entities
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Windows.Media;
-    using System.Windows.Media.Imaging;
-
+    
     public partial class Products
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -31,32 +28,6 @@ namespace SorokonozkaApp.Entities
         public Nullable<decimal> Price { get; set; }
         public Nullable<int> Stock { get; set; }
         public string Photo { get; set; }
-
-        [NotMapped]
-        public ImageSource ImageSource{
-            get
-            {
-                if (string.IsNullOrWhiteSpace(Photo)) return null;
-
-                try
-                {
-                    string fileName = Photo.EndsWith(".png") ? Photo : Photo + ".png";
-                    string path = $"pack://application:,,,/Images/{fileName}";
-
-                    BitmapImage bmp = new BitmapImage();
-                    bmp.BeginInit();
-                    bmp.UriSource = new Uri(path, UriKind.Absolute);
-                    bmp.CacheOption = BitmapCacheOption.OnLoad;
-                    bmp.EndInit();
-                    bmp.Freeze();
-                    return bmp;
-                }
-                catch
-                {
-                    return null;
-                }
-            }
-        }
     
         public virtual Categories Categories { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -1,9 +1,9 @@
-﻿<Page x:Class="SorokonozkaApp.View.Showcase.ShowPage"
+﻿<Page x:Class="SorokonozkaApp.View.Shop.ShowPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:SorokonozkaApp.View.Showcase"
+      xmlns:local="clr-namespace:SorokonozkaApp.View.Shop"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Каталог"
@@ -62,7 +62,7 @@
                                        FontSize="18" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Right"/>
 
                             <StackPanel Grid.Column="3" Orientation="Horizontal" VerticalAlignment="Center" Margin="15, 0">
-                                <Button Name="BtnBuy" Content="Добавить в корзину" Padding="12, 6" Click="BtnBuy_Click"/>
+                                <Button Name="BtnBuy" Content="Добавить в корзину" Padding="12, 6" Click="BtnBuy_Click" Tag="{Binding}"/>
                             </StackPanel>
                         </Grid>
                     </Border>

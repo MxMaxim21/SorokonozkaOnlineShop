@@ -16,7 +16,7 @@
           <Key>
             <PropertyRef Name="OrderItemID" />
           </Key>
-          <Property Name="OrderItemID" Type="int" Nullable="false" />
+          <Property Name="OrderItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="OrderID" Type="int" />
           <Property Name="ProductID" Type="int" />
           <Property Name="Quantity" Type="int" />

@@ -1,0 +1,60 @@
+﻿<Page x:Class="SorokonozkaApp.View.Shop.CartPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SorokonozkaApp.View.Shop"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Корзина"
+      Background="#FFF"
+      Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="0,0,0,20">
+            <Button Name="BtnBack" Content="Назад в каталог" HorizontalAlignment="Left" Padding="10,5" Click="BtnBack_Click"/>
+            <Button Name="BtnLogout" Content="Выйти из аккаунта" HorizontalAlignment="Right" Padding="10,5" Click="BtnLogout_Click"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Name="GridUserCart">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="Мои товары" FontSize="18" Margin="0,0,0,10"/>
+
+            <ListView Name="LViewCart" Grid.Row="1" BorderThickness="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="White" CornerRadius="5" Padding="10" Margin="0,0,0,8" BorderBrush="#DDD" BorderThickness="1">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0" Text="{Binding Title}" FontWeight="Bold" VerticalAlignment="Center" Margin="5"/>
+
+                                <TextBlock Grid.Column="1" Text="{Binding Price, StringFormat={}{0:N0} ₽}" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"/>
+
+                                <Button Name="BtnCancel" Grid.Column="2" Content="Отменить" Padding="8,4" Margin="15,0,0,0" Click="BtnCancel_Click" Tag="{Binding}"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <TextBlock Grid.Row="3" Name="TxtTotal" Text="Итого: 0 ₽" FontSize="18" FontWeight="Bold" VerticalAlignment="Center"/>
+            <Button Grid.Row="3" Name="BtnCheckout" Content="Оформить заказ" Padding="15, 8" HorizontalAlignment="Right" Click="BtnCheckout_Click"/>
+        </Grid>
+    </Grid>
+</Page>
