@@ -22,14 +22,13 @@ namespace SorokonozkaApp.View.Showcase
     {
         public ShowPage()
         {
-            this.DataContext = this;
-
             InitializeComponent();
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
-
+            if (NavigationService != null && NavigationService.CanGoBack)
+                NavigationService.GoBack();
         }
 
         private void BtnCart_Click(object sender, RoutedEventArgs e)
@@ -54,6 +53,8 @@ namespace SorokonozkaApp.View.Showcase
                 var shoes = App.Context.Products.ToList();
 
                 LViewShoes.ItemsSource = shoes;
+
+                
             }
             catch (Exception ex)
             {

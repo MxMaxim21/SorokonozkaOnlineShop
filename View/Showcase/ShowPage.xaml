@@ -34,16 +34,16 @@
                             Background="#FFF" Margin="5" Padding="10" Width="900">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="95"/> <!--Photo-->
-                                <ColumnDefinition Width="*"/> <!--Title-->
-                                <ColumnDefinition Width="160"/> <!--Price-->
-                                <ColumnDefinition Width="Auto"/> <!--Button-->
+                                <ColumnDefinition Width="100"/> 
+                                <ColumnDefinition Width="*"/> 
+                                <ColumnDefinition Width="160"/> 
+                                <ColumnDefinition Width="Auto"/> 
                             </Grid.ColumnDefinitions>
 
                             <StackPanel Grid.Column="0" Orientation="Horizontal" Margin="5, 0, 15, 0">
                             <Border Width="80" Height="80" BorderBrush="#AAA"
                                     BorderThickness="1" Background="#AAA">
-                                <Image Name="ImgPreview" Stretch="UniformToFill"/>
+                                <Image Name="ImgPreview" Stretch="UniformToFill" Source="{Binding ImageSource}"/>
                             </Border>
                             </StackPanel>
 
