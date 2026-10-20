@@ -6,7 +6,7 @@ WPF-приложение для торговой компании «Сороко
 ## Установка
 
 1. Клонируйте репозиторий:
-   git clone [[https://github.com/MxMaxim21/NechaevMaxim_LR1.git](https://github.com/MxMaxim21/NechaevMaxim_LR1.git](https://github.com/MxMaxim21/SorokonozkaOnlineShop.git))
+   git clone [[(https://github.com/MxMaxim21/SorokonozkaOnlineShop.git]]
    cd SorokonozkaOnlineShop
 
 2. Откройте файл решения SorokonozkaApp.sln в среде Visual Studio 2022.
